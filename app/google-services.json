@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "677007955266",
+    "firebase_url": "https://fitnessrecipes-f22a6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "fitnessrecipes-f22a6",
+    "storage_bucket": "fitnessrecipes-f22a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677007955266:android:94ce16c33c23e4855424db",
+        "android_client_info": {
+          "package_name": "com.rezappstudio.fitnessrecipeadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677007955266-p8d4se19liuo0f41b5dee6fp7q0lhofi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8KB-BDTPhXPiaTH9HCBt28uTYnq0aBiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677007955266-p8d4se19liuo0f41b5dee6fp7q0lhofi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677007955266:android:2746a1f9701a3c4e5424db",
+        "android_client_info": {
+          "package_name": "com.rezappstudio.fitnessrecipes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677007955266-p8d4se19liuo0f41b5dee6fp7q0lhofi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8KB-BDTPhXPiaTH9HCBt28uTYnq0aBiI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677007955266-p8d4se19liuo0f41b5dee6fp7q0lhofi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
