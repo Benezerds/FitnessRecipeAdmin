@@ -128,6 +128,10 @@ public class MainActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
+                            while (!uri.isComplete()) ;
+                            Uri url = uri.getResult();
+
                             Handler handler = new Handler();
                             handler.postDelayed(new Runnable() {
                                 @Override
@@ -135,13 +139,13 @@ public class MainActivity extends AppCompatActivity {
                                     mProgressBar.setProgress(0);
                                 }
                             }, 500);
+
                             Toast.makeText(MainActivity.this, "Upload Successful", Toast.LENGTH_LONG).show();
-                            Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    result.toString());
+                                   url.toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
-                            Toast.makeText(MainActivity.this, result.toString(), Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
