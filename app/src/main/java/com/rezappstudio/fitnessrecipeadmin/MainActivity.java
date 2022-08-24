@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                openImagesActivity();
             }
         });
     }
@@ -164,6 +164,11 @@ public class MainActivity extends AppCompatActivity {
         }else{
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void openImagesActivity(){
+        Intent intent = new Intent(this, RecipesActivity.class);
+        startActivity(intent);
     }
 
 }
