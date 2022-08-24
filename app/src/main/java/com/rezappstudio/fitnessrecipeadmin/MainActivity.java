@@ -63,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("recipes");
 
 
-
-
         //  On Click Listener to call the method that allows the user to choose the file/image they wanted
         mButtonChooseImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,13 +74,12 @@ public class MainActivity extends AppCompatActivity {
         mButtonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (mUploadTask != null && mUploadTask.isInProgress()){
+                if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(MainActivity.this, "Upload is in progress", Toast.LENGTH_SHORT).show();
                 } else
-                uploadFile();
+                    uploadFile();
             }
         });
-
 
 
         mTextViewShowUploads.setOnClickListener(new View.OnClickListener() {
@@ -113,16 +110,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String getFileExtension(Uri uri){
+    private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
-    private void uploadFile(){
-        if (mImageUri != null){
+    private void uploadFile() {
+        if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-            + "." + getFileExtension(mImageUri));
+                    + "." + getFileExtension(mImageUri));
 
             mUploadTask = fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -143,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Upload Successful", Toast.LENGTH_LONG).show();
 
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                   url.toString());
+                                    url.toString());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
                         }
@@ -161,12 +158,12 @@ public class MainActivity extends AppCompatActivity {
                             mProgressBar.setProgress((int) progress);
                         }
                     });
-        }else{
+        } else {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void openImagesActivity(){
+    private void openImagesActivity() {
         Intent intent = new Intent(this, RecipesActivity.class);
         startActivity(intent);
     }
