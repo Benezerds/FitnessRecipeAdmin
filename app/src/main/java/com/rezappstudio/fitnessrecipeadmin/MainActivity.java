@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mButtonUpload;
     private TextView mTextViewShowUploads;
     private EditText mEditTextFileName;
+    private EditText mEditTextCalorie;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
 
@@ -56,9 +57,11 @@ public class MainActivity extends AppCompatActivity {
         mButtonUpload = findViewById(R.id.button_upload);
         mTextViewShowUploads = findViewById(R.id.text_view_uploads);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
+        mEditTextCalorie = findViewById(R.id.edit_text_calorie);
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
+        //  Initiating the path/reference that will be used as the location of where the uploaded file will end up
         mStorageRef = FirebaseStorage.getInstance().getReference("recipes");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("recipes");
 
@@ -89,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     //  choose file method
     private void openFileChooser() {
@@ -140,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(MainActivity.this, "Upload Successful", Toast.LENGTH_LONG).show();
 
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    url.toString());
+                                    url.toString(), mEditTextCalorie.getText().toString().trim());
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
                         }
