@@ -9,24 +9,24 @@ public class Upload {
         //  Empty constructor
     }
 
-    public Upload(String mName, String mImageUrl, String calorie) {
+    //  The name for each value in the database will be determined according to the naming of the parameter
+    //  Setter and Getter is really important as well
+    public Upload(String mName, String mImageUrl, String mCalorie) {
         if (mName.trim().equals("")) {
             mName = "No Name";
         }
         this.mName = mName;
         this.mImageUrl = mImageUrl;
-        this.mCalorie = calorie;
+        this.mCalorie = mCalorie;
     }
 
-    public String getCalorie() {
+    public String getmCalorie() {
         return mCalorie;
     }
 
-    public void setCalorie(String calorie) {
-        this.mCalorie = calorie;
+    public void setmCalorie(String mCalorie) {
+        this.mCalorie = mCalorie;
     }
-
-
 
     public String getmName() {
         return mName;

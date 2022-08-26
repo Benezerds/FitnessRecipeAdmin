@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AppDev/FitnessRecipeAdmin/app/src/main/res/font/darkergrotesque_light.xml" value="0.29743589743589743" />
         <entry key="..\:/AppDev/FitnessRecipeAdmin/app/src/main/res/layout/activity_main.xml" value="0.2578125" />
         <entry key="..\:/AppDev/FitnessRecipeAdmin/app/src/main/res/layout/activity_recipes.xml" value="0.27291666666666664" />
         <entry key="..\:/AppDev/FitnessRecipeAdmin/app/src/main/res/layout/recipes_item.xml" value="0.27291666666666664" />

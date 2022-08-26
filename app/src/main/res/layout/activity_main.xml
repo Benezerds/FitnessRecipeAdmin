@@ -7,37 +7,70 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button_choose_image"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/text_view_title"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choose Image"
-        android:textSize="14sp" />
+        android:fontFamily="@font/darkergrotesque_light"
+        android:text="Admin App"
+        android:textAlignment="center"
+        android:textSize="32sp" />
+
 
     <EditText
         android:id="@+id/edit_text_file_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@id/button_choose_image"
+        android:layout_below="@id/text_view_title"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
         android:hint="Enter file name" />
 
     <EditText
         android:id="@+id/edit_text_calorie"
-        android:layout_width="match_parent"
+        android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_text_file_name"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@id/button_choose_image"
+        android:layout_marginTop="8dp"
         android:hint="Enter calorie" />
+
+    <EditText
+        android:id="@+id/edit_text_protein"
+        android:layout_width="172dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_file_name"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_toEndOf="@id/button_choose_image"
+        android:hint="Enter protein" />
+
+    <EditText
+        android:id="@+id/edit_text_recipe_details"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_below="@id/edit_text_calorie"
+        android:layout_marginTop="12dp"
+        android:hint="Recipe Details" />
+
+
+    <Button
+        android:id="@+id/button_choose_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_text_recipe_details"
+        android:layout_marginTop="16dp"
+        android:text="Choose Image"
+        android:textSize="14sp" />
 
     <ImageView
         android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/progress_bar"
-        android:layout_below="@id/edit_text_calorie"
-        android:layout_marginTop="16dp" />
+        android:layout_below="@id/button_choose_image"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp" />
 
 
     <ProgressBar
@@ -48,6 +81,7 @@
         android:layout_above="@id/button_upload"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="16dp" />
+
 
     <Button
         android:id="@+id/button_upload"
