@@ -61,9 +61,6 @@ public class MainActivity extends AppCompatActivity {
         mImageView = findViewById(R.id.image_view);
         mProgressBar = findViewById(R.id.progress_bar);
 
-        //  Initiating the path/reference that will be used as the location of where the uploaded file will end up
-        mStorageRef = FirebaseStorage.getInstance().getReference("recipes");
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference("recipes");
 
 
         //  On Click Listener to call the method that allows the user to choose the file/image they wanted
@@ -79,8 +76,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (mUploadTask != null && mUploadTask.isInProgress()) {
                     Toast.makeText(MainActivity.this, "Upload is in progress", Toast.LENGTH_SHORT).show();
-                } else
+                } else {
+                    //  Initiating the path/reference that will be used as the location of where the uploaded file will end up
+                    mStorageRef = FirebaseStorage.getInstance().getReference("recipes");
+                    mDatabaseRef = FirebaseDatabase.getInstance().getReference("recipes");
                     uploadFile();
+                }
             }
         });
 

@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecipesActivity extends AppCompatActivity {
+public class RecipesActivity extends AppCompatActivity implements RecipesAdapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
     private RecipesAdapter mAdapter;
 
@@ -53,6 +53,9 @@ public class RecipesActivity extends AppCompatActivity {
                 mAdapter = new RecipesAdapter(RecipesActivity.this, mUploads);
 
                 mRecyclerView.setAdapter(mAdapter);
+
+                mAdapter.setOnItemClickListener(RecipesActivity.this);
+
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
 
@@ -63,5 +66,20 @@ public class RecipesActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Toast.makeText(this, "Normal Click at position: " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onWhatEverClick(int position) {
+        Toast.makeText(this, "Whatever Click at position: " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDeleteClick(int position) {
+        Toast.makeText(this, "Delete Click at position: " + position, Toast.LENGTH_SHORT).show();
     }
 }
