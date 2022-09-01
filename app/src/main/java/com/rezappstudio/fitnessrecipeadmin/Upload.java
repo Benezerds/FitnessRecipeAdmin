@@ -1,9 +1,12 @@
 package com.rezappstudio.fitnessrecipeadmin;
 
+import com.google.firebase.database.Exclude;
+
 public class Upload {
     private String mName;
     private String mImageUrl;
     private String mCalorie;
+    public String mKey;
 
     public Upload() {
         //  Empty constructor
@@ -42,6 +45,15 @@ public class Upload {
 
     public void setmCalorie(String mCalorie) {
         this.mCalorie = mCalorie;
+    }
+
+    @Exclude
+    public String getmKey() {
+        return mKey;
+    }
+
+    public void setmKey(String mKey) {
+        this.mKey = mKey;
     }
 
     @Override

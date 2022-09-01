@@ -27,12 +27,14 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ImageVie
         mUploads = uploads;
     }
 
+
     @NonNull
     @Override
     public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.recipes_item, parent, false);
         return new ImageViewHolder(v);
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
@@ -45,6 +47,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ImageVie
                 .centerCrop()
                 .into(holder.imageView);
     }
+
 
     @Override
     public int getItemCount() {
@@ -66,32 +69,35 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ImageVie
             itemView.setOnCreateContextMenuListener(this);
         }
 
+
         @Override
         public void onClick(View view) {
-            if (mListener != null){
+            if (mListener != null) {
                 int position = getAdapterPosition();
-                if(position != RecyclerView.NO_POSITION){
+                if (position != RecyclerView.NO_POSITION) {
                     mListener.onItemClick(position);
                 }
             }
         }
 
+
+        //  Section for floating context menu
         @Override
         public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
             contextMenu.setHeaderTitle("Select Action");
             MenuItem doWhatever = contextMenu.add(Menu.NONE, 1, 1, "Do whatever");
-            MenuItem delete = contextMenu.add(Menu.NONE, 2,2, "Delete");
+            MenuItem delete = contextMenu.add(Menu.NONE, 2, 2, "Delete");
 
             doWhatever.setOnMenuItemClickListener(this);
             delete.setOnMenuItemClickListener(this);
         }
 
+
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
-
-            if (mListener != null){
+            if (mListener != null) {
                 int position = getAdapterPosition();
-                if(position != RecyclerView.NO_POSITION){
+                if (position != RecyclerView.NO_POSITION) {
 
                     switch (menuItem.getItemId()) {
                         case 1:
@@ -103,10 +109,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.ImageVie
                     }
                 }
             }
-
             return false;
         }
     }
+
 
     public interface OnItemClickListener {
         void onItemClick(int position);
